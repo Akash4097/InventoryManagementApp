@@ -2,27 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
 
-main() {
+void main() {
   if (Platform.isIOS) {
-    runApp(myIosApp());
+    runApp(MyIosApp());
   } else {
-    runApp(myApp());
+    runApp(MyApp());
   }
 }
 
-class myApp extends StatelessWidget {
-  build(context) {
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text("EasyList"),
+        ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(10.0),
+              child: RaisedButton(
+                child: Text("Add Product"),
+                onPressed: () {},
+              ),
+            ),
+            Card(
+              child: Column(
+                children: <Widget>[
+                  Image(
+                    image: AssetImage('assets/food.jpg'),
+                  ),
+                  Text("Food paradise")
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 }
 
-class myIosApp extends StatelessWidget {
+class MyIosApp extends StatelessWidget {
   build(context) {
     return CupertinoApp(
       home: CupertinoPageScaffold(
