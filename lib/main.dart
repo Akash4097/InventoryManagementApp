@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_course/pages/auth.dart';
 import 'package:flutter_course/pages/product.dart';
 import 'dart:io' show Platform;
 
@@ -43,9 +44,10 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 //      home: AuthPage(),
       routes: {
+        "/": (BuildContext context) => AuthPage(),
         "/admin": (BuildContext context) =>
             ProductsAdminPage(_addProducts, _deleteProduct),
-        '/': (BuildContext context) => ProductsPage(_products)
+        '/products': (BuildContext context) => ProductsPage(_products)
       },
       onGenerateRoute: (RouteSettings settings) {
         List<String> pathElements = settings.name.split('/');
