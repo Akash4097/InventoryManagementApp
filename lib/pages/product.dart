@@ -43,13 +43,14 @@ class ProductPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: ListView(
+//          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image(
               image: AssetImage(imageUrl),
             ),
             Container(
+              alignment: Alignment.center,
               padding: EdgeInsets.all(10.0),
               child: TitleDefault(title),
             ),

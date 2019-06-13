@@ -40,7 +40,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      theme: ThemeData(
+          primarySwatch: Colors.deepOrange, buttonColor: Colors.deepPurple),
       debugShowCheckedModeBanner: false,
 //      home: AuthPage(),
       routes: {
