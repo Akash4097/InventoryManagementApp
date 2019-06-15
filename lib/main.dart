@@ -37,6 +37,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _updateProduct(int index, Map<String, dynamic> product) {
+    setState(() {
+      _products[index] = product;
+    });
+  }
+
   @override
   Widget build(context) {
     return MaterialApp(
@@ -47,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/": (BuildContext context) => AuthPage(),
         "/admin": (BuildContext context) =>
-            ProductsAdminPage(_addProducts, _deleteProduct),
+            ProductsAdminPage(_addProducts, _updateProduct, _deleteProduct, _products),
         '/products': (BuildContext context) => ProductsPage(_products)
       },
       onGenerateRoute: (RouteSettings settings) {
