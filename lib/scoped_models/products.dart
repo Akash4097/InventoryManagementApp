@@ -1,10 +1,10 @@
 import 'package:flutter_course/models/product.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class ProductsModel extends Model {
+mixin ProductsModel on Model {
+  bool _showFavorite = false;
   List<Product> _products = [];
   int _selectedProductIndex;
-  bool _showFavorite = false;
 
   List<Product> get product {
     return List.from(_products); // this will return new list with same items
@@ -22,10 +22,10 @@ class ProductsModel extends Model {
   }
 
   Product get selectedProduct {
-    if (_selectedProductIndex == null) {
+    if (selectedProductIndex == null) {
       return null;
     }
-    return _products[_selectedProductIndex];
+    return _products[selectedProductIndex];
   }
 
   bool get displayFavoriteOnly {
@@ -39,13 +39,13 @@ class ProductsModel extends Model {
   }
 
   void deleteProduct() {
-    _products.removeAt(_selectedProductIndex);
+    _products.removeAt(selectedProductIndex);
     _selectedProductIndex = null;
     notifyListeners();
   }
 
   void updateProduct(Product product) {
-    _products[_selectedProductIndex] = product;
+    _products[selectedProductIndex] = product;
     _selectedProductIndex = null;
     notifyListeners();
   }
@@ -73,5 +73,6 @@ class ProductsModel extends Model {
   void toggleDisplayMode() {
     _showFavorite = !_showFavorite;
     notifyListeners();
+    _selectedProductIndex = null;
   }
 }

@@ -1,4 +1,6 @@
+import 'package:flutter_course/scoped_models/main.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class AuthPage extends StatefulWidget {
   @override
@@ -77,7 +79,7 @@ class _AuthPageState extends State<AuthPage> {
       return;
     }
     _formKey.currentState.save();
-    print(_formData);
+//    login(_formData['emial'], _formData['password']);
     Navigator.pushReplacementNamed(context, "/products");
   }
 
@@ -115,7 +117,7 @@ class _AuthPageState extends State<AuthPage> {
                       textColor: Colors.white,
                       child: Text("LOGIN"),
                       onPressed: _submitForm,
-                    )
+                    ),
                   ],
                 ),
               ),
